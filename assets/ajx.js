@@ -56,16 +56,16 @@ $(document).ready(function() {
     });
 
     // need event listener to capture button .class event, pass search string to API call
-    $(".topics-btn").on("click", function() {
+    $(document).on("click", ".topics-btn", function() { //$(".topics-btn").on("click", function() {
         var animal = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-          animal + "&api_key=Z8lBjCboNSl3SWH8t4ewhD5ZTKp82tJQ&limit=5";
+          animal + "&api_key=Z8lBjCboNSl3SWH8t4ewhD5ZTKp82tJQ&rating=pg&limit=9";
   
         $.ajax({
           url: queryURL,
           method: "GET"
         })
-          .then(function(response) {
+          .then(function(response) { // vs. done???
             var results = response.data;
             console.log(results);
             
@@ -82,6 +82,11 @@ $(document).ready(function() {
   
               var animalImage = $("<img>");
               animalImage.attr("src", results[i].images.fixed_height.url);
+                
+              animalImage.attr("data-still",results[i].images.fixed_height_small_still.url); // still image
+              animalImage.attr("data-animate",results[i].images.fixed_height_small.url); // animated image
+              animalImage.attr("data-state", "still"); // set the image state
+              animalImage.addClass("image");
   
               gifDiv.prepend(p);
               gifDiv.prepend(animalImage);
@@ -89,5 +94,16 @@ $(document).ready(function() {
               $("#gif-view").prepend(gifDiv);
             }
           });
+          
+          $(document).on("click", ".image", function(){
+            var state = $(this).attr('data-state');
+            if (state == 'still') {
+                $(this).attr('src', $(this).data('animate'));
+                $(this).attr('data-state', 'animate'); }
+            else {
+                $(this).attr('src', $(this).data('still'));
+                $(this).attr('data-state', 'still');
+            }
+        });
       });
 });
