@@ -8,7 +8,7 @@ $(document).ready(function() {
     var topics = ["mouse", "woodchuck", "baboon", "kangaroo", "hyena"];
 
     // use back ticks for template strings (variables)
-    var apiURL = `https://cnn.com/articles/?${searchString}`;
+    var giphyURL = `https://api.giphy.com/v1/gifs/search?q=`;
 
     var searchString = "";
 
@@ -18,7 +18,7 @@ $(document).ready(function() {
 
     function addButtons() {
 
-        // Deleting any previous buttons added   
+        // clear buttons div and re-populate with current array so as not to duplicate 
         $("#buttonsContainer").empty();
 
         // iterating through the topics array
@@ -36,7 +36,7 @@ $(document).ready(function() {
         b.text(topics[i]);
         // Adding buttons to the buttonsContainer div
         $("#buttonsContainer").append(b);
-        //console.log(topics);
+        console.log(topics);
         //console.log(b);
         }
     }
@@ -56,5 +56,34 @@ $(document).ready(function() {
     });
 
     // need event listener to capture button .class event, pass search string to API call
-
+    $(".topics-btn").on("click", function() {
+        var animal = $(this).attr("data-name");
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+          animal + "&api_key=Z8lBjCboNSl3SWH8t4ewhD5ZTKp82tJQ&limit=5";
+  
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        })
+          .then(function(response) {
+            var results = response.data;
+            console.log(results);
+  
+            for (var i = 0; i < results.length; i++) {
+              var gifDiv = $("<div class='item'>");
+  
+              var rating = results[i].rating;
+  
+              var p = $("<p>").text("Rating: " + rating);
+  
+              var animalImage = $("<img>");
+              animalImage.attr("src", results[i].images.fixed_height.url);
+  
+              gifDiv.prepend(p);
+              gifDiv.prepend(animalImage);
+  
+              $("#gif-view").prepend(gifDiv);
+            }
+          });
+      });
 });
