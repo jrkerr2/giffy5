@@ -68,7 +68,11 @@ $(document).ready(function() {
           .then(function(response) {
             var results = response.data;
             console.log(results);
-  
+            
+            // clear .gifs view
+            $("#gif-view").empty();
+            
+            // iterate through results and add images to div
             for (var i = 0; i < results.length; i++) {
               var gifDiv = $("<div class='item'>");
   
