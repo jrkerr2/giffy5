@@ -1,0 +1,30 @@
+body {
+    background: url("../assets/images/brushsteel.jpg");
+    background-repeat: repeat;
+    color: black;
+}
+
+.jumbotron {
+    justify-content: center;
+    text-align: center;
+    background-color: blue!important;
+
+}
+
+h1 {
+    color: white!important;
+
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+}
+
+#gif-form {
+    float: right;
+}
+
+#gif-view {
+    float: left;
+}

@@ -15,28 +15,32 @@
     </head>
     
     <body>
-        
-        <div class="jumbotron">
-            <h1 id = "headmessage">Find an animal .GIF!</h1><br>
-        </div>
-        
-        <div class = "container"><br>            
-            
-            <div id = "buttonsContainer">the buttons go here</div>
-            <br>
-            
-            
-            <form id="gif-form">
-                              
-                <input id="add-gif" type="submit" value="Add an animal">
-                <input type="text" id="text-gif"><br>
-                <br>
-                
-            <div id = "gif-view">the .GIFs will appear here</div>
-            
+        <div class = "container">
 
-            </form>
+        
+            <div class="jumbotron">
+                <h1 id = "headmessage">Find an animal .GIF!</h1><br>
+                <p class="lead">Add a search button below, click images to animate</p>
+
+            </div>
             
+            <div class = "container"><br>            
+                
+                <div id = "buttonsContainer">the buttons go here</div>
+                <br>
+
+                <div id = "gif-view">the .GIFs will appear here -- click to animate          
+                </div>                
+                
+                <form id="gif-form">
+                                
+                    <input id="add-gif" type="submit" value="Add animal button">
+                    <input type="text" autocomplete="off" id="text-gif"><br>
+                    <br>                  
+                          
+                </form>
+                
+            </div>
         </div>
 
     </body>

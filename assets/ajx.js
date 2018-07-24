@@ -51,7 +51,7 @@ $(document).ready(function() {
         topic = $("#text-gif").val().trim();
 
         // Add any NEW input to topics array
-        if (!topics.includes(topic)) {
+        if (!topics.includes(topic) && topic != "") {
           topics.push(topic);
           addButtons();
         }
@@ -81,7 +81,7 @@ $(document).ready(function() {
             // clear .gifs view
             $("#gif-view").empty();
             
-            // iterate through results and add images to div
+            // iterate through results and add images to div with attr's for later selectors use
             for (var i = 0; i < results.length; i++) {
               var gifDiv = $("<div class='item'>");
   
