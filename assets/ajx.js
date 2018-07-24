@@ -30,14 +30,17 @@ $(document).ready(function() {
 
         // Adding a class of topics-btn to buttons
         b.addClass("topics-btn");
+
         // Adding a data-attribute
         b.attr("data-name", topics[i]);
+
         // Providing the initial button text
         b.text(topics[i]);
+
         // Adding buttons to the buttonsContainer div
         $("#buttonsContainer").append(b);
-        console.log(topics);
-        //console.log(b);
+        // console.log(topics);
+        // console.log(b);
         }
     }
     // on button click add to topic array, add button
@@ -47,12 +50,18 @@ $(document).ready(function() {
         // grab user input from text box
         topic = $("#text-gif").val().trim();
 
-        // Add any new input to topics array
-        topics.push(topic);
-        //console.log(topic);
+        // Add any NEW input to topics array
+        if (!topics.includes(topic)) {
+          topics.push(topic);
+          addButtons();
+        }
+        else {
+          alert("That animal button already exists. Try again.")
+        }
+        // console.log(topic);
 
         // Call addButtons to refresh our buttons array of topics
-        addButtons();
+        // addButtons();
     });
 
     // need event listener to capture button .class event, pass search string to API call
@@ -83,8 +92,8 @@ $(document).ready(function() {
               var animalImage = $("<img>");
               animalImage.attr("src", results[i].images.fixed_height_small_still.url);
                 
-              animalImage.attr("data-still",results[i].images.fixed_height_small_still.url); // still image
-              animalImage.attr("data-animate",results[i].images.fixed_height_small.url); // animated image
+              animalImage.attr("data-still", results[i].images.fixed_height_small_still.url); // still image
+              animalImage.attr("data-animate", results[i].images.fixed_height_small.url); // animated image
               animalImage.attr("data-state", "still"); // set the image state
               animalImage.addClass("image");
   
@@ -99,7 +108,8 @@ $(document).ready(function() {
         });
       });
 
-      $(document).on("click", ".image", function(){
+      // change gif animation state
+      $(document).on("click", ".image", function() {
         var state = $(this).attr('data-state');
         if (state == 'still') {
             $(this).attr('src', $(this).data('animate'));
