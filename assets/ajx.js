@@ -28,7 +28,7 @@ $(document).ready(function() {
         // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
         var b = $("<button>");
 
-        // Adding a class of topics-btn to buttons
+        // Adding a class of topics-btn to buttons and formatting using bootstrap helper classes
         b.addClass("topics-btn btn-info");
 
         // Adding a data-attribute
@@ -60,12 +60,10 @@ $(document).ready(function() {
         }
         else {
           alert("That animal button already exists. Try again.")
+          // clear textbox input
           $("#text-gif").val("");
-        }
-        // console.log(topic);
-
-        // Call addButtons to refresh our buttons array of topics
-        // addButtons();
+        }        
+      
     });
 
     // need event listener to capture button .class event, pass search string to API call
