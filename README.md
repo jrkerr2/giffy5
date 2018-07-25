@@ -5,7 +5,7 @@
     - Source code here: (https://github.com/jrkerr2/giffy5)
 
 + Known Defects
-    - 'Add button' div will be pushed to the bottom of page in certain circumstances (responsiveness)
+    - 'Add button' gif form will be pushed to the bottom of page in certain circumstances (responsiveness)
     - background image repeats noticeably
     - bootstrap grid not used explicitly, aligning all retrieved images to the leftmost column
 
