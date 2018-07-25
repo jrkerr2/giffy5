@@ -29,7 +29,7 @@ $(document).ready(function() {
         var b = $("<button>");
 
         // Adding a class of topics-btn to buttons
-        b.addClass("topics-btn");
+        b.addClass("topics-btn bg-dark");
 
         // Adding a data-attribute
         b.attr("data-name", topics[i]);
@@ -54,9 +54,13 @@ $(document).ready(function() {
         if (!topics.includes(topic) && topic != "") {
           topics.push(topic);
           addButtons();
+          // clear textbox input
+          $("#text-gif").val("");
+
         }
         else {
           alert("That animal button already exists. Try again.")
+          $("#text-gif").val("");
         }
         // console.log(topic);
 
