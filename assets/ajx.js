@@ -29,7 +29,7 @@ $(document).ready(function() {
         var b = $("<button>");
 
         // Adding a class of topics-btn to buttons
-        b.addClass("topics-btn bg-dark");
+        b.addClass("topics-btn btn-info");
 
         // Adding a data-attribute
         b.attr("data-name", topics[i]);

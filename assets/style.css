@@ -4,13 +4,13 @@ body {
     color: black;
     margin: 25px;
     padding: 25px;
-    
+
 }
 
 .jumbotron {
     justify-content: center;
     text-align: center;
-    background-color: blue!important;
+    background-color: teal!important;
     margin: 0px;
     padding: 0px;
 
@@ -40,7 +40,11 @@ span {
     font-style: italic;
 }
 
-.para {
+p {
     color: white; 
 
+}
+
+#buttonsContainer {
+    color: white;
 }
