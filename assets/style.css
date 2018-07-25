@@ -1,5 +1,5 @@
 body {
-    background: url("../assets/images/brushsteel.jpg");
+    background: url("../assets/images/leatherback.jpg");
     background-repeat: repeat;
     color: black;
 }
@@ -31,4 +31,13 @@ h1 {
 
 #gif-view {
     float: left;
+}
+
+span {
+    font-style: italic;
+}
+
+.para {
+    color: white; 
+
 }
