@@ -91,7 +91,7 @@ $(document).ready(function() {
   
               var p = $("<p>").text("Rating: " + rating);
   
-              var animalImage = $("<img>");
+              var animalImage = $("<img class='image'>");
               animalImage.attr("src", results[i].images.fixed_height_small_still.url);
                 
               animalImage.attr("data-still", results[i].images.fixed_height_small_still.url); // still image

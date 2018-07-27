@@ -33,7 +33,8 @@ h1 {
 }
 
 #gif-view {
-    float: left;
+    clear: both;
+    
 }
 
 span {
@@ -47,4 +48,12 @@ p {
 
 #buttonsContainer {
     color: white;
+}
+
+.item {
+    float: left;
+}
+
+.image {
+    padding: 7px;
 }
